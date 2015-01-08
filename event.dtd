@@ -1,0 +1,20 @@
+<!ELEMENT event (title, datetime, location, description, creator, attendees, admins, comment*)>
+
+<!ENTITY % person "name">
+
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT datetime (#PCDATA)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT creator (%person;)>
+<!ELEMENT admins (admin+)>
+<!ELEMENT attendees (#PCDATA)>
+<!ELEMENT comment (text, datetime, %person;)>
+<!ELEMENT text (#PCDATA)>
+
+<!ELEMENT admin (%person;)>
+<!ELEMENT guest (%person;)>
+
+<!ELEMENT name (#PCDATA)>
+
+<!ATTLIST comment id ID #REQUIRED>

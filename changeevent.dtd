@@ -1,0 +1,14 @@
+<!ELEMENT event (title, datetime, location, description, attendees, admins)>
+
+<!ENTITY % person "name">
+
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT datetime (#PCDATA)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+
+<!ELEMENT admins (admin+)>
+<!ELEMENT attendees (guest+)>
+
+<!ATTLIST admin username PCDATA #REQUIRED>
+<!ATTLIST guest username PCDATA #REQUIRED>
