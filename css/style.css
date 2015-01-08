@@ -40,3 +40,18 @@ body{
 	float: left;
 	padding: 10px 20px 10px 20px;
 }
+
+.listevent{
+	margin-left: 30px;
+}
+
+table{
+	border-spacing: 0px;
+}
+
+.addEvent{
+	margin-left: 30px;
+}
+.addEvent input{
+	height: 30px;
+}
