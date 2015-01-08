@@ -1,6 +1,6 @@
 <!ELEMENT listevents (event*)>
 
-<!ELEMENT event (title, shortDescription?, datetime, location?, nrOfAttendees, nrOfComments)>
+<!ELEMENT event (title, shortDescription?, datetime, location?, nrOfAttendees, nrOfComments, link)>
 
 <!ELEMENT title (#PCDATA)>
 <!ELEMENT shortDescription (#PCDATA)>
@@ -8,3 +8,4 @@
 <!ELEMENT location (#PCDATA)>
 <!ELEMENT nrOfAttendees (#PCDATA)>
 <!ELEMENT nrOfComments (#PCDATA)>
+<!ELEMENT link (#PCDATA)>
