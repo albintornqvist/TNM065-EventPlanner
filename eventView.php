@@ -5,6 +5,8 @@ ini_set('display_startup_errors','1');
 error_reporting (E_ALL);
 ob_start();
 //
+
+session_start();
 ?>
 
 
@@ -40,6 +42,12 @@ ob_start();
 	$attendR = mysql_query($attendQ);
 	$nrOfAttendees = mysql_num_rows($attendR);
 
+
+	$date = new datetime($object->date);
+
+	//Handling comment info from new entry
+	
+	$_SESSION["eventID"] = $eventID;
 ?>
 
 
@@ -49,7 +57,7 @@ ob_start();
 
 	<description><?php print utf8_encode($object->description); ?></description>
 
-	<datetime><?php print utf8_encode($object->date); ?></datetime>
+	<datetime><?php print utf8_encode(date_format($date, 'Y-m-d H:m')); ?></datetime>
 	<location><?php print utf8_encode($object->location); ?></location>
 	<creator><?php print utf8_encode($object->creator); ?></creator>
 
@@ -70,7 +78,9 @@ ob_start();
 	<?php 
 		while($line2 = mysql_fetch_object($commentR))
 		{
-			$resString2 = "<comment id='$line2->commentid'> <name> $line2->username </name> <datetime> $line2->date </datetime> <text> $line2->text </text> </comment>";
+			$commentDate = new datetime($line2->date);
+			$commentDate = date_format($commentDate, 'Y-m-d H:m');
+			$resString2 = "<comment id='$line2->commentid'> <name> $line2->username </name> <datetime> $commentDate </datetime> <text> $line2->text </text> </comment>";
 			print utf8_encode($resString2);
 		}
 	?>
