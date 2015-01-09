@@ -14,7 +14,6 @@ body{
 
 .content{
 	background-color: #FFF;
-	padding-top: 50px;
 	padding-bottom: 100px;
 }
 
@@ -39,6 +38,26 @@ body{
 	color: #000;
 	float: left;
 	padding: 10px 20px 10px 20px;
+}
+
+
+.comments{
+	margin-left: 45px;
+}
+
+.text{
+	margin-left: 10px;
+}
+
+.eventTitle{
+	width: 100%;
+	padding-top: 30px;
+	padding-bottom: 5px;
+	background-color: #FFDDCC;
+}
+
+.eventTitle h1{
+	margin-left: 45px;
 }
 
 .listevent{
