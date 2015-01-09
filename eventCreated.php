@@ -39,16 +39,11 @@
 					?>
 					<meta http-equiv="refresh" content="0; url=eventView.php?id=<?= $id ?>" />
 					<?php
-					echo $id;
-					echo "<br>succeed";
 				}
 				else{
 					echo "<br>failed";
 				}
-
-			}
-
-			
+			}			
 		?>
 	</body>
 </html>		
