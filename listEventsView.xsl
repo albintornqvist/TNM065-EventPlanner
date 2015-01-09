@@ -64,13 +64,7 @@
 
 			<p>
 				<xsl:value-of select="shortDescription"/>
-			</p>
-
-			<p>
-				<xsl:value-of select="link"/>
-			</p>
-
-			
+			</p>			
 		</div>
 
 	</xsl:template>
