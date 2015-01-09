@@ -18,15 +18,27 @@ ob_start();
 	mysql_select_db("emilrydkvist_se")
 	            or die("Could not select database");
 
-	$query = "SELECT * FROM event WHERE id = 1";
+	if(!$_GET["id"])
+	{
+		die("Ooops... Something went wrong!");
+	}
+
+
+	$eventID = $_GET["id"];
+
+	$query = "SELECT * FROM event WHERE id = $eventID";
 	$result = mysql_query($query) or die("Query failed");
 	$object = mysql_fetch_object($result);
 
-	$adminQ = "SELECT * FROM admins WHERE eventid = 1";
+	$adminQ = "SELECT * FROM admins WHERE eventid = $eventID";
 	$adminR = mysql_query($adminQ);
 
-	$commentQ = "SELECT * FROM comment WHERE eventid = 1";
+	$commentQ = "SELECT * FROM comment WHERE eventid = $eventID";
 	$commentR = mysql_query($commentQ);
+
+	$attendQ = "SELECT * FROM attends WHERE eventid = $eventID";
+	$attendR = mysql_query($attendQ);
+	$nrOfAttendees = mysql_num_rows($attendR);
 
 ?>
 
@@ -53,7 +65,7 @@ ob_start();
 
 	</admins>
 
-	<attendees></attendees>
+	<attendees><?php print utf8_encode($nrOfAttendees); ?></attendees>
 
 	<?php 
 		while($line2 = mysql_fetch_object($commentR))
