@@ -40,6 +40,7 @@ body{
 	padding: 10px 20px 10px 20px;
 }
 
+
 .comments{
 	margin-left: 45px;
 }
@@ -57,4 +58,19 @@ body{
 
 .eventTitle h1{
 	margin-left: 45px;
+}
+
+.listevent{
+	margin-left: 30px;
+}
+
+table{
+	border-spacing: 0px;
+}
+
+.addEvent{
+	margin-left: 30px;
+}
+.addEvent input{
+	height: 30px;
 }
