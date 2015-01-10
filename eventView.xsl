@@ -38,9 +38,18 @@
 
 	      		<div class="content">
 	      			<div class="eventTitle">
-	      				<h1>
-								<xsl:value-of select="title"/>
-							</h1>
+	      				<table>
+	      					<tr>
+	      						<td>
+				      				<h1>
+											<xsl:value-of select="title"/>
+										</h1>
+									</td>
+									<td>
+										<a href="{link}" class="editEvent"><img src="img/edit.png" height="25"/></a>
+									</td>
+								</tr>
+							</table>
 						</div>
 
 	      			<div class="event">
@@ -65,6 +74,8 @@
 							<p class="description">
 								<xsl:value-of select="description"/>
 							</p>
+
+
 
 							<table class="eventInfo">
 								<tr>
@@ -114,12 +125,11 @@
 							</div>
 						</xsl:for-each>
 
-						<form action="addComment.php" method="post">
+						<form name="commentForm" action="addComment.php" method="post">
 							<p>Name: <input type="text" name="name" /></p>
 							<p>Comment: <textarea type="text" maxlength="150" rows="4" cols="40" name="comment" /></p>
-							<p><input type="submit" value="click" name="submit"/></p>
+							<p><input type="submit" value="ok" name="submit"/></p>
 						</form>
-						
 
 
 					</div>

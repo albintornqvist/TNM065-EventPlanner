@@ -20,6 +20,7 @@ p{
 .content{
 	background-color: #FFF;
 	padding-bottom: 30px;
+	padding-top: 30px;
 }
 
 .content h2{
@@ -78,7 +79,6 @@ p{
 
 .eventTitle{
 	width: 100%;
-	padding-top: 30px;
 }
 
 .eventTitle h1{
@@ -154,7 +154,10 @@ table{
 	color: #E8740E;
 }
 
-
+.editEvent{
+	float: right;
+	padding-left: 20px;
+}
 
 
 
