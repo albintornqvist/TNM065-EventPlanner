@@ -112,6 +112,3 @@ session_start();
 	echo utf8_decode($proc->transformToXML($xml));
 ?>
 
-
-
-
