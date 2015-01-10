@@ -10,7 +10,7 @@ session_start();
 ?>
 
 
-<!DOCTYPE party SYSTEM "http://www.albintornqvist.se/TNM065/project/event.dtd">
+<!DOCTYPE party SYSTEM "http://www.albintornqvist.se/TNM065/project/changeevent.dtd">
 
 
 <?php
@@ -32,21 +32,9 @@ session_start();
 	$result = mysql_query($query) or die("Query failed");
 	$object = mysql_fetch_object($result);
 
-	$adminQ = "SELECT * FROM admins WHERE eventid = $eventID";
-	$adminR = mysql_query($adminQ);
-
-	$commentQ = "SELECT * FROM comment WHERE eventid = $eventID";
-	$commentR = mysql_query($commentQ);
-
-	$attendQ = "SELECT * FROM attends WHERE eventid = $eventID";
-	$attendR = mysql_query($attendQ);
-	$nrOfAttendees = mysql_num_rows($attendR);
-
-
 	$date = new datetime($object->date);
 
 	//Handling comment info from new entry
-	
 	$_SESSION["eventID"] = $eventID;
 ?>
 
@@ -59,33 +47,8 @@ session_start();
 
 	<datetime><?php print utf8_encode(date_format($date, 'Y-m-d H:m')); ?></datetime>
 	<location><?php print utf8_encode($object->location); ?></location>
-	<creator><?php print utf8_encode($object->creator); ?></creator>
 
-	<admins>
-
-		<?php
-			while($line = mysql_fetch_object($adminR))
-			{
-				$resString = "<admin> $line->username </admin>";
-				print utf8_encode($resString);
-			}
-		?>
-
-	</admins>
-
-	<attendees><?php print utf8_encode($nrOfAttendees); ?></attendees>
-
-	<link><?php print utf8_encode("editEvent.php?id=$eventID"); ?></link>
-
-	<?php 
-		while($line2 = mysql_fetch_object($commentR))
-		{
-			$commentDate = new datetime($line2->date);
-			$commentDate = date_format($commentDate, 'Y-m-d H:m');
-			$resString2 = "<comment id='$line2->commentid'> <name> $line2->username </name> <datetime> $commentDate </datetime> <text> $line2->text </text> </comment>";
-			print utf8_encode($resString2);
-		}
-	?>
+	<link><?php print utf8_encode("updateEvent.php?id=$eventID"); ?></link>
 
 </event>
 
@@ -104,7 +67,7 @@ session_start();
 	
 
 	header("Content-type:text/html");
-	$xsl->load('eventView.xsl');
+	$xsl->load('editEvent.xsl');
 	
 	// Make the transformation and print the result
 	$proc = new XSLTProcessor;

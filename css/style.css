@@ -21,6 +21,8 @@ p{
 	background-color: #FFF;
 	padding-bottom: 30px;
 	padding-top: 30px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 .content h2{
@@ -64,13 +66,18 @@ p{
   	height: 100px;
 }
 
+.banner a{
+	text-decoration: none;
+	color: #000;
+}
+
 .name{
 	font-family: helvetica;
-	font-size: 3.5em;
+	font-size: 4em;
 	text-decoration:none;
 	color: #000;
 	float: left;
-	padding: 10px 20px 10px 20px;
+	padding: 30px 20px 10px 20px;
 }
 
 .text{
@@ -82,7 +89,6 @@ p{
 }
 
 .eventTitle h1{
-	margin-left: 30px;
 	margin-bottom: 5px;
 	font-family: helvetica;
 
@@ -159,6 +165,9 @@ table{
 	padding-left: 20px;
 }
 
+.editEvent img{
+	height: 20px;
+}
 
 
 

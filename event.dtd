@@ -1,4 +1,4 @@
-<!ELEMENT event (title, datetime, location, description, creator, attendees, admins, comment*, link)>
+<!ELEMENT event (title, datetime, location, description, creator, attendees, comment*, link)>
 
 <!ENTITY % person "name">
 
@@ -7,13 +7,11 @@
 <!ELEMENT location (#PCDATA)>
 <!ELEMENT description (#PCDATA)>
 <!ELEMENT creator (%person;)>
-<!ELEMENT admins (admin+)>
 <!ELEMENT attendees (#PCDATA)>
 <!ELEMENT comment (text, datetime, %person;)>
 <!ELEMENT text (#PCDATA)>
 <!ELEMENT link(#PCDATA)>
 
-<!ELEMENT admin (%person;)>
 <!ELEMENT guest (%person;)>
 
 <!ELEMENT name (#PCDATA)>

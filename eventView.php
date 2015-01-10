@@ -32,9 +32,6 @@ session_start();
 	$result = mysql_query($query) or die("Query failed");
 	$object = mysql_fetch_object($result);
 
-	$adminQ = "SELECT * FROM admins WHERE eventid = $eventID";
-	$adminR = mysql_query($adminQ);
-
 	$commentQ = "SELECT * FROM comment WHERE eventid = $eventID";
 	$commentR = mysql_query($commentQ);
 
@@ -60,18 +57,6 @@ session_start();
 	<datetime><?php print utf8_encode(date_format($date, 'Y-m-d H:m')); ?></datetime>
 	<location><?php print utf8_encode($object->location); ?></location>
 	<creator><?php print utf8_encode($object->creator); ?></creator>
-
-	<admins>
-
-		<?php
-			while($line = mysql_fetch_object($adminR))
-			{
-				$resString = "<admin> $line->username </admin>";
-				print utf8_encode($resString);
-			}
-		?>
-
-	</admins>
 
 	<attendees><?php print utf8_encode($nrOfAttendees); ?></attendees>
 
