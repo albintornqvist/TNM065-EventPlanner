@@ -29,12 +29,22 @@
 	// If result matched $myusername and $mypassword, table row must be 1 row
 	if($count==1){
 
-	// Register $myusername, $mypassword and redirect to file "login_success.php"
-	session_register("myusername");
-	session_register("mypassword"); 
-	header("location:loginSuccess.php");
+		// Register $myusername, $mypassword and redirect to file "login_success.php"
+		session_register("myusername");
+		session_register("mypassword");
+		$_SESSION['login'] = "1";
+
+		if(!session_is_registered(myusername)){
+			header("location:mainLogin.php");
+		}
+
+		// header("location:loginSuccess.php");
+		header("location: listEventsView.php");
 	}
 	else {
-	echo "Wrong Username or Password";
+		$errorMessage = "Invalid Login";
+		session_start();
+		$_SESSION['login'] = "";
+		echo "Wrong Username or Password";
 	}
 ?>

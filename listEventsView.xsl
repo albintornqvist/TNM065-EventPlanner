@@ -25,8 +25,8 @@
 			        	<ul class="categories">
 			            	<li><a href="listEventsView.php">Home</a></li>
 			            	<li><a href="addEvent.html">Add Event</a></li>
-			            	<li class="active"><a href="portfolio.html">Log in</a></li>
-			            	<li><a href="courses.html">Log out</a></li>
+			            	<li class="active"><a href="mainLogin.php">Log in</a></li>
+		          			<li><a href="logout.php">Log out</a></li>
 			            </ul>
 
 			        </div>

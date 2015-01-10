@@ -120,6 +120,17 @@ table{
 	height: 30px;
 }
 
+.loginbox input{
+	height: 30px;
+}
+
+.register{
+	margin-left: 30px;
+}
+
+.register input{
+	height: 30px;
+}
 
 .navigationBar{
 	width:100%;
