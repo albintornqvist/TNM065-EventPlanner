@@ -46,7 +46,9 @@
 			        </ul>
 
 			   	</div>
+
 			   		<xsl:apply-templates/>
+
 				</div>		
 			</body>
 		</html>

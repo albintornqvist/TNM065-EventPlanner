@@ -1,9 +1,10 @@
 <?php
-	$eventID = $_GET["id"];
+	
 	if(!$_GET["id"])
 	{
-		die("Ooops... Something went wrong!");
+		die("Could not get id...");
 	}
+	$eventID = $_GET["id"];
 
 	$title = htmlspecialchars($_POST['eventTitle']);
 	$dateTime = htmlspecialchars($_POST['eventTime']);
@@ -20,7 +21,7 @@
 	{
 		$query = "UPDATE event SET title='$title', date='$dateTime', 
 				location='$location', description='$description' WHERE id='$eventID'";
-				
+
 		if(mysql_query($sqlComment))
 		{
 			header('Location: eventView.php?id=$eventID');
