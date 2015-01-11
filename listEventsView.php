@@ -118,9 +118,9 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 	if(!isset($_GET['r']))     
 	{     
 	echo "<script language=\"JavaScript\">     
-	<!--      
-	document.location=\"$PHP_SELF?r=1&width=\"+window.innerWidth;     
-	//-->     
+	    
+		document.location=\"$PHP_SELF?r=1&width=\"+window.innerWidth;     
+	    
 	</script>";     
 	}     
 	else {         

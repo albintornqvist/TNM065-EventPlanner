@@ -1,5 +1,16 @@
 <?php
+	
+	session_start();
 
+	if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
+		header("Location: listEventsView.php");
+		exit;
+	}
+	else
+	{
+		$user = $_SESSION['user'];
+	}
+	
 	// koppa upp mot databasen med med användarnamn resp lösen rsslaboration
 
 	$link = mysql_connect("emilrydkvist.se.mysql", "emilrydkvist_se", "ytt5t2Le")
@@ -22,8 +33,8 @@
 	}
 	else
 	{
-		$insertQuery = "INSERT INTO event (title, description, date, location) VALUES
-		('$eventTitle', '$eventDescription', '$eventTime', '$eventLocation')";
+		$insertQuery = "INSERT INTO event (title, description, date, location, creator) VALUES
+		('$eventTitle', '$eventDescription', '$eventTime', '$eventLocation', '$user')";
 
 		$result = mysql_query($insertQuery);
 

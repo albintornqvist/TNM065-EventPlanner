@@ -1,3 +1,9 @@
+<!ELEMENT page (menu. logLink, logStatus, event)>
+
+<!ELEMENT menu (#PCDATA)>
+<!ELEMENT logLink (#PCDATA)>
+<!ELEMENT logStatus (#PCDATA)>
+
 <!ELEMENT event (title, datetime, location, description, link)>
 
 <!ENTITY % person "name">

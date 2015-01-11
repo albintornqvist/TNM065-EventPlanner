@@ -7,6 +7,24 @@ ob_start();
 //
 
 session_start();
+
+if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
+
+		// header ("Location: mainLogin.php");
+		$loginMessage = '';
+		$logStatus = 'Log in';
+		$logLink = 'mainLogin.php';
+		$loggedIn = false;
+
+	}
+	else{
+		$ses = $_SESSION['login'];
+		// $user = $_SESSION['user'];
+		$loginMessage = 'Logged in as ' . $_SESSION['user'];
+		$logStatus = 'Log out';
+		$logLink = 'logout.php';
+		$loggedIn = true;
+	}
 ?>
 
 
@@ -14,7 +32,10 @@ session_start();
 
 
 <?php
-	mysql_connect("emilrydkvist.se.mysql", "emilrydkvist_se", "ytt5t2Le")
+
+	// ob_start();
+
+	$link = mysql_connect("emilrydkvist.se.mysql", "emilrydkvist_se", "ytt5t2Le")
 	            or die("Could not connect");
 
 	mysql_select_db("emilrydkvist_se")
@@ -37,23 +58,28 @@ session_start();
 	//Handling comment info from new entry
 	$_SESSION["eventID"] = $eventID;
 ?>
+<page>
 
+	<user><?php print utf8_encode($loginMessage); ?></user>
+	<logLink><?php print utf8_encode($logLink); ?></logLink>
+	<logStatus><?php print utf8_encode($logStatus); ?></logStatus>
 
-<event>
+	<event>
 
-	<title><?php print utf8_encode($object->title); ?></title>
+		<title><?php print utf8_encode($object->title); ?></title>
 
-	<description><?php print utf8_encode($object->description); ?></description>
+		<description><?php print utf8_encode($object->description); ?></description>
 
-	<datetime><?php print utf8_encode(date_format($date, 'Y-m-d H:m')); ?></datetime>
-	<location><?php print utf8_encode($object->location); ?></location>
-
+		<datetime><?php print utf8_encode(date_format($date, 'Y-m-d H:m')); ?></datetime>
+		<location><?php print utf8_encode($object->location); ?></location>
+		
 	<link><?php 
 				$resString = "updateEvent.php?id=" . $_GET["id"];
 				print utf8_encode($resString); ?></link>
 
-</event>
+	</event>
 
+</page>
 
 <?php 
 	//put XML content in a string
