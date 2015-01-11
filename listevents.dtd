@@ -1,6 +1,10 @@
-<!ELEMENT listevents (event*)>
+<!ELEMENT listevents (event*, user, logLink, logStatus)>
 
 <!ELEMENT event (title, shortDescription?, datetime, location?, nrOfAttendees, nrOfComments, link)>
+
+<!ELEMENT menu (#PCDATA)>
+<!ELEMENT logLink (#PCDATA)>
+<!ELEMENT logStatus (#PCDATA)>
 
 <!ELEMENT title (#PCDATA)>
 <!ELEMENT shortDescription (#PCDATA)>

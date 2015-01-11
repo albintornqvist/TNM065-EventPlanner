@@ -5,24 +5,30 @@ ini_set('display_startup_errors','1');
 error_reporting (E_ALL);
 ob_start();
 //
-?>
-
-<?php
 
 session_start();
 
 if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 
-	header ("Location: mainLogin.php");
+	// header ("Location: mainLogin.php");
+	$loginMessage = '';
+	$logStatus = 'Log in';
+	$logLink = 'mainLogin.php';
 
-}
+
+}else{
 	$ses = $_SESSION['login'];
-
+	// $user = $_SESSION['user'];
+	$loginMessage = 'Logged in as ' . $_SESSION['user'];
+	$logStatus = 'Log out';
+	$logLink = 'logout.php';
+}
+	
 ?>
 
 
 <?php  
-
+	ob_start();
 	// koppa upp mot databasen med med användarnamn resp lösen rsslaboration
 
 	$link = mysql_connect("emilrydkvist.se.mysql", "emilrydkvist_se", "ytt5t2Le")
@@ -40,6 +46,9 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 
 	$returnstring ="";
 	print utf8_encode("<listevents>");
+	print utf8_encode("<user>$loginMessage</user>");
+	print utf8_encode("<logLink>$logLink</logLink>");
+	print utf8_encode("<logStatus>$logStatus</logStatus>");
 	while($line = mysql_fetch_object($result))
 	{
 
@@ -91,6 +100,7 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 ?>
 
 <?php 
+
  //put XML content in a string
  $xmlstr=ob_get_contents();
  ob_end_clean();
