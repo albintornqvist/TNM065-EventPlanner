@@ -33,6 +33,7 @@
 		session_register("myusername");
 		session_register("mypassword");
 		$_SESSION['login'] = "1";
+		$_SESSION['user'] = $myusername;
 
 		if(!session_is_registered(myusername)){
 			header("location:mainLogin.php");

@@ -1,3 +1,28 @@
+<?php 
+
+	session_start();
+
+	if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
+
+		// header ("Location: mainLogin.php");
+		$loginMessage = '';
+		$logStatus = 'Log in';
+		$logLink = 'mainLogin.php';
+		$loggedIn = false;
+
+	}
+	else{
+		$ses = $_SESSION['login'];
+		// $user = $_SESSION['user'];
+		$loginMessage = 'Logged in as ' . $_SESSION['user'];
+		$logStatus = 'Log out';
+		$logLink = 'logout.php';
+		$loggedIn = true;
+	}
+	
+?>
+
+
 <html>
 
 	<head>
@@ -36,14 +61,20 @@
 			<div class="navigationBar">
 		        <ul class="categories">
 		          <li><a href="listEventsView.php">Home</a></li>
-		          <li><a href="addEvent.html">Create Event</a></li>
-		          <li class="active"><a href="mainLogin.php">Log in</a></li>
-		          <li><a href="logout.php">Log out</a></li>
+		          <li><a href="addEvent.php">Create Event</a></li>
+		          <li><a href=""><?= $loginMessage ?></a></li>
+		          <li class="active"><a href="<?= $logLink ?>"><?= $logStatus ?></a></li>
 		        </ul>
 
 		   </div>
 
 			<div class="content">
+
+				<?php
+
+				if($loggedIn == true)
+				{ ?>
+
 				<div class="addEvent">
 					<h2>Create new event</h2>
 
@@ -96,6 +127,12 @@
 						<input type="submit" value="Create Event">
 					</form>
 				</div>
+				<?php }
+			else
+			{
+				echo "You must log in to create an event.";
+			}
+			?>
 			</div>		
 		</div>		
 

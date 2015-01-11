@@ -40,7 +40,7 @@
         
 			        <ul class="categories">
 			          <li><a href="listEventsView.php">Home</a></li>
-			          <li><a href="addEvent.html">Create Event</a></li>
+			          <li><a href="addEvent.php">Create Event</a></li>
 			          <li class="active"><a href="portfolio.html">Log in</a></li>
 			          <li><a href="courses.html">Log out</a></li>
 			        </ul>

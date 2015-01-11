@@ -25,9 +25,11 @@
         
 			        	<ul class="categories">
 			            	<li><a href="listEventsView.php">Home</a></li>
-			            	<li><a href="addEvent.html">Create Event</a></li>
-			            	<li class="active"><a href="mainLogin.php">Log in</a></li>
-		          			<li><a href="logout.php">Log out</a></li>
+			            	<li><a href="addEvent.php">Create Event</a></li>
+			            	<li><a href=""><xsl:value-of select="user"/></a></li>
+			            	<li class="active"><a href="{logLink}"><xsl:value-of select="logStatus"/></a></li>
+		          			<!-- <li><a href="logout.php">Log out</a></li> -->
+		          			
 			            </ul>
 
 			        </div>
@@ -81,6 +83,9 @@
 
 	</xsl:template>
 
+	<xsl:template match="user"/>
+	<xsl:template match="logLink"/>
+	<xsl:template match="logStatus"/>
 	<xsl:template match="title"/>
 	<xsl:template match="datetime"/>
 	<xsl:template match="location"/>
