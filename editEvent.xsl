@@ -52,7 +52,7 @@
 						<div class="addEvent">
 							<h2>Edit event</h2>
 
-							<form name="eventForm" action="{link}" method="get" onsubmit="return validateForm()">
+							<form name="eventForm" action="{link}" method="post" onsubmit="return validateForm()">
 								<table>
 									<tr>
 										<td>Name:</td>

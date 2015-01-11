@@ -14,7 +14,7 @@ session_start();
 
 
 <?php
-	$link = mysql_connect("emilrydkvist.se.mysql", "emilrydkvist_se", "ytt5t2Le")
+	mysql_connect("emilrydkvist.se.mysql", "emilrydkvist_se", "ytt5t2Le")
 	            or die("Could not connect");
 
 	mysql_select_db("emilrydkvist_se")
