@@ -101,23 +101,53 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 
 <?php 
 
- //put XML content in a string
- $xmlstr=ob_get_contents();
- ob_end_clean();
- 
- // Load the XML string into a DOMDocument
- $xml = new DOMDocument;
- $xml->loadXML($xmlstr);
- 
- // Make a DOMDocument for the XSL stylesheet
- $xsl = new DOMDocument;
- 
+	//put XML content in a string
+	$xmlstr=ob_get_contents();
+	ob_end_clean();
 
- header("Content-type:text/html");
- $xsl->load('listEventsView.xsl');
- 
- // Make the transformation and print the result
- $proc = new XSLTProcessor;
- $proc->importStyleSheet($xsl); // attach the xsl rules
- echo utf8_decode($proc->transformToXML($xml));
+	// Load the XML string into a DOMDocument
+	$xml = new DOMDocument;
+	$xml->loadXML($xmlstr);
+
+	// Make a DOMDocument for the XSL stylesheet
+	$xsl = new DOMDocument;
+
+	header("Content-type:text/html");
+
+   
+	if(!isset($_GET['r']))     
+	{     
+	echo "<script language=\"JavaScript\">     
+	<!--      
+	document.location=\"$PHP_SELF?r=1&width=\"+window.innerWidth;     
+	//-->     
+	</script>";     
+	}     
+	else {         
+
+	// Code to be displayed if resolutoin is detected     
+	  if(isset($_GET['width'])) {     
+	            // Resolution  detected  
+	      if($_GET['width'] < 1000){
+	      	echo $_GET['width'];
+	      }
+	      else{
+	      	$xsl->load('listEventsView.xsl');
+	      }
+
+
+	  }     
+	  else {     
+	            // Resolution not detected 
+	  		$xsl->load('listEventsView.xsl');
+	  }     
+	}     
+
+
+	
+
+	// Make the transformation and print the result
+	$proc = new XSLTProcessor;
+	$proc->importStyleSheet($xsl); // attach the xsl rules
+	echo utf8_decode($proc->transformToXML($xml));
 ?>

@@ -20,16 +20,17 @@
 	if($title && $dateTime && $location && $description)
 	{
 		$query = "UPDATE event SET title='$title', date='$dateTime', 
-				location='$location', description='$description' WHERE id='$eventID'";
+				location='$location', description='$description' WHERE id=$eventID";
 
-		if(mysql_query($sqlComment))
+		if(mysql_query($query))
 		{
-			header('Location: eventView.php?id=$eventID');
+			$locString = "Location: eventView.php?id=1";
+			header($locString);
 			exit;
 		}
 		else
 		{
-			die("The query failed...");
+			echo "The query failed...";
 		}
 
 	}

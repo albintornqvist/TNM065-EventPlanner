@@ -48,7 +48,9 @@ session_start();
 	<datetime><?php print utf8_encode(date_format($date, 'Y-m-d H:m')); ?></datetime>
 	<location><?php print utf8_encode($object->location); ?></location>
 
-	<link><?php print utf8_encode("updateEvent.php?id=$eventID"); ?></link>
+	<link><?php 
+				$resString = "updateEvent.php?id=" . $_GET["id"];
+				print utf8_encode($resString); ?></link>
 
 </event>
 
