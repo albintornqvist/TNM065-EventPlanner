@@ -1,7 +1,10 @@
-<!ELEMENT event (title, datetime, location, description, creator, attendees, comment*, link)>
+<!ELEMENT event (menu, logLink, logStatus, user, title, datetime, location, description, creator, attendees, comment*, link, attendLink)>
 
 <!ENTITY % person "name">
-
+<!ELEMENT menu (#PCDATA)>
+<!ELEMENT logLink (#PCDATA)>
+<!ELEMENT logStatus (#PCDATA)>
+<!ELEMENT user (#PCDATA)>
 <!ELEMENT title (#PCDATA)>
 <!ELEMENT datetime (#PCDATA)>
 <!ELEMENT location (#PCDATA)>
@@ -11,6 +14,7 @@
 <!ELEMENT comment (text, datetime, %person;)>
 <!ELEMENT text (#PCDATA)>
 <!ELEMENT link(#PCDATA)>
+<!ELEMENT attendLink(#PCDATA)>
 
 <!ELEMENT guest (%person;)>
 

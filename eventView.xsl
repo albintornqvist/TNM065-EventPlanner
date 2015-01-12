@@ -3,8 +3,7 @@
 
 <xsl:stylesheet version="1.0"
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-
+	
 	<xsl:template match="event">
 
 		<html>
@@ -21,8 +20,8 @@
 				
 				<div class="container">
 					<div class="banner">
-          			<a href="listEventsView.php" class="name">EventPlanner</a>
-      			</div>
+          				<a href="listEventsView.php" class="name">EventPlanner</a>
+      				</div>
 
 
       			<div class="navigationBar">
@@ -30,8 +29,8 @@
 			        <ul class="categories">
 			          <li><a href="listEventsView.php">Home</a></li>
 			          <li><a href="addEvent.php">Create Event</a></li>
-			          <li class="active"><a href="mainLogin.php">Log in</a></li>
-		          	  <li><a href="logout.php">Log out</a></li>
+			          <li><a href=""><xsl:value-of select="user"/></a></li>
+			          <li class="active"><a href="{logLink}"><xsl:value-of select="logStatus"/></a></li>
 			        </ul>
 
 			      </div>
@@ -47,7 +46,9 @@
 										</h1>
 									</td>
 									<td>
-										<a href="{link}" class="editEvent"><img src="img/edit.png" height="25"/></a>
+										<xsl:if test="user=1">
+											<a href="{link}" class="editEvent"><img src="img/edit.png" height="25"/></a>
+										</xsl:if>
 									</td>
 								</tr>
 							</table>
@@ -75,6 +76,18 @@
 							<p class="description">
 								<xsl:value-of select="description"/>
 							</p>
+
+							<xsl:if test="user=0">
+								<form name ="attendForm" action="{attendLink}" method="post">
+									<input type="submit" value="Attend"/>
+								</form>
+							</xsl:if>
+
+							<xsl:if test="user=2">
+								<form name ="attendForm" action="{attendLink}" method="post">
+									<input type="submit" value="Cancel"/>
+								</form>
+							</xsl:if>
 
 
 

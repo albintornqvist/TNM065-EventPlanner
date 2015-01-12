@@ -102,4 +102,3 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 	$proc->importStyleSheet($xsl); // attach the xsl rules
 	echo utf8_decode($proc->transformToXML($xml));
 ?>
-
