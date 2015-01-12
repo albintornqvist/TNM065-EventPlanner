@@ -7,6 +7,26 @@ ob_start();
 //
 
 session_start();
+
+if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
+
+		// header ("Location: mainLogin.php");
+		$loginMessage = '';
+		$logStatus = 'Log in';
+		$logLink = 'mainLogin.php';
+		$loggedIn = false;
+		$user = -1;
+
+	}
+	else{
+		$ses = $_SESSION['login'];
+		// $user = $_SESSION['user'];
+		$loginMessage = 'Logged in as ' . $_SESSION['user'];
+		$logStatus = 'Log out';
+		$logLink = 'logout.php';
+		$loggedIn = true;
+		$user = 0;
+	}
 ?>
 
 
@@ -39,15 +59,36 @@ session_start();
 	$attendR = mysql_query($attendQ);
 	$nrOfAttendees = mysql_num_rows($attendR);
 
-
 	$date = new datetime($object->date);
 
+	$creator = $object->creator;
+	if(isset($_SESSION['user']) && $creator == $_SESSION['user'])
+	{
+		$user = 1;
+	}
+
+
+	while($line1 = mysql_fetch_object($attendR))
+	{
+		if(isset($_SESSION['user']) && $_SESSION['user'] == $line1->username)
+		{
+			$user = 2;
+		}		
+
+	}
+	
 	//Handling comment info from new entry
 	$_SESSION["eventID"] = $eventID;
 ?>
 
 
 <event>
+
+	<user><?php print utf8_encode($loginMessage); ?></user>
+	<logLink><?php print utf8_encode($logLink); ?></logLink>
+	<logStatus><?php print utf8_encode($logStatus); ?></logStatus>
+
+	<user><?php print utf8_encode($user); ?></user>
 
 	<title><?php print utf8_encode($object->title); ?></title>
 
@@ -60,6 +101,8 @@ session_start();
 	<attendees><?php print utf8_encode($nrOfAttendees); ?></attendees>
 
 	<link><?php print utf8_encode("editEvent.php?id=$eventID"); ?></link>
+
+	<attendLink><?php print utf8_encode("handleAttend.php?id=$eventID&amp;action=$user"); ?></attendLink>
 
 	<?php 
 		while($line2 = mysql_fetch_object($commentR))
@@ -75,7 +118,9 @@ session_start();
 
 
 <?php 
-	//put XML content in a string
+
+
+	// put XML content in a string
 	$xmlstr=ob_get_contents();
 	ob_end_clean();
 	
@@ -103,7 +148,3 @@ session_start();
 	$proc->importStyleSheet($xsl); // attach the xsl rules
 	echo utf8_decode($proc->transformToXML($xml));
 ?>
-
-
-
-
