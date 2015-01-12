@@ -43,7 +43,6 @@ session_start();
 	$date = new datetime($object->date);
 
 	//Handling comment info from new entry
-	
 	$_SESSION["eventID"] = $eventID;
 ?>
 
@@ -89,7 +88,15 @@ session_start();
 	
 
 	header("Content-type:text/html");
-	$xsl->load('eventView.xsl');
+	
+
+	if(isset($_GET['mobile']))     
+	{     
+		$xsl->load('mobile/eventViewM.xsl'); 
+	}     
+	else {            
+	  	$xsl->load('eventView.xsl');  
+	}    
 	
 	// Make the transformation and print the result
 	$proc = new XSLTProcessor;

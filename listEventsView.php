@@ -56,7 +56,7 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 
 		$desc = $line->description;
 
-		$date = $line->date;
+		$date = date_format(new datetime($line->date), 'Y-m-d H:m');
 
 		$location = $line->location;
 
@@ -70,7 +70,6 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 		$commentResult = mysql_query($commentQuery);
 		$nrOfComments = mysql_num_rows($commentResult);
 
-		$returnstring = $returnstring . "<listevents><title>$title</title></listevents>";
 
 		$returnTitle = "<title>$title</title>";
 		$returnDesc = "<shortDescription>$desc</shortDescription>";
@@ -115,32 +114,12 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 	header("Content-type:text/html");
 
    
-	if(!isset($_GET['r']))     
+	if(isset($_GET['mobile']))     
 	{     
-	echo "<script language=\"JavaScript\">     
-	    
-		document.location=\"$PHP_SELF?r=1&width=\"+window.innerWidth;     
-	    
-	</script>";     
+		$xsl->load('mobile/listEventsViewM.xsl'); 
 	}     
-	else {         
-
-	// Code to be displayed if resolutoin is detected     
-	  if(isset($_GET['width'])) {     
-	            // Resolution  detected  
-	      if($_GET['width'] < 1000){
-	      	echo $_GET['width'];
-	      }
-	      else{
-	      	$xsl->load('listEventsView.xsl');
-	      }
-
-
-	  }     
-	  else {     
-	            // Resolution not detected 
-	  		$xsl->load('listEventsView.xsl');
-	  }     
+	else {            
+	  	$xsl->load('listEventsView.xsl');   
 	}     
 
 
@@ -151,3 +130,4 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 	$proc->importStyleSheet($xsl); // attach the xsl rules
 	echo utf8_decode($proc->transformToXML($xml));
 ?>
+

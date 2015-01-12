@@ -11,9 +11,9 @@
 
 			<head>
 				<meta charset="utf-8"/>
-			  <title>EventPlanner</title>
-			  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet"/>
-			  <link href="css/style.css" rel="stylesheet"/>
+			   <title>EventPlanner</title>
+			   <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet"/>
+			   <link href="mobile/css/styleM.css" rel="stylesheet"/>
 			</head>
 
 
@@ -28,7 +28,7 @@
       			<div class="navigationBar">
         
 			        <ul class="categories">
-			          <li><a href="listEventsView.php">Home</a></li>
+			          <li><a href="listEventsView.php?mobile">Home</a></li>
 			          <li><a href="addEvent.php">Create Event</a></li>
 			          <li class="active"><a href="mainLogin.php">Log in</a></li>
 		          	  <li><a href="logout.php">Log out</a></li>
@@ -96,9 +96,10 @@
 					</div>
 
 					<div class="comments">
+						
+
 						<xsl:for-each select="comment">
 							<div class="comment">
-
 								<table>
 									<tr>
 										<td>
@@ -116,7 +117,7 @@
 								<p class="text">
 									<xsl:value-of select="text"/>
 								</p>
-							</div>
+							</div>	
 						</xsl:for-each>
 
 						<form name="commentForm" action="addComment.php" method="post">
@@ -140,6 +141,7 @@
 							</table>
 						</form>
 
+						
 					</div>
 
 				</div>
