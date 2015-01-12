@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 
 <xsl:stylesheet version="1.0"
@@ -133,9 +133,24 @@
 						</xsl:for-each>
 
 						<form name="commentForm" action="addComment.php" method="post">
-							<p>Name: <input type="text" name="name" /></p>
-							<p>Comment: <textarea type="text" maxlength="150" rows="4" cols="40" name="comment" /></p>
-							<p><input type="submit" value="ok" name="submit"/></p>
+							<table>
+								<tr>
+									<td>
+										<p class="commentName">Name: <input type="text" name="name" /></p>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>Comment: <textarea type="text" maxlength="150" rows="4" cols="40" name="comment" /></p>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p><input type="submit" value="Send comment" name="submit"/></p>
+									</td>
+								</tr>
+
+							</table>
 						</form>
 
 					</div>
