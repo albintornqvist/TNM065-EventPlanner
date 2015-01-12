@@ -1,0 +1,195 @@
+body{
+	background-color: #DED9D3;
+	margin: 0;
+	padding: 0px;
+}
+
+p{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-family: helvetica;
+}
+
+
+.container{
+	width: 100%;
+  	margin-bottom: 30px;
+}
+
+.content{
+	background-color: #FFF;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.content h2{
+}
+
+.comments{
+	margin-top: 10px;
+	background-color: #EEE;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 30px;
+}
+
+.comment{
+	margin-bottom: 30px;
+	font-size: 1.1em;
+}
+
+.commentDate{
+	color: #666;
+	font-size: 1.0em;
+	margin-left: 10px;
+}
+
+.commentName b{
+	color: #66B;
+	font-size: 1.1em;
+}
+
+.event{
+}
+
+.eventInfo{
+	color: #666;
+	font-size: 1.2em;
+	padding-left: 30px;
+}
+
+.banner{
+	width: 100%;
+	margin-left: auto;
+  	margin-right: auto;
+  	height: 100px;
+}
+
+.banner a{
+	margin-left: auto;
+  	margin-right: auto;
+	text-decoration: none;
+	color: #000;
+}
+
+.name{
+	font-family: helvetica;
+	font-size: 4em;
+	text-decoration:none;
+	color: #000;
+	float: left;
+	padding: 30px 20px 10px 20px;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+.text{
+	margin-left: 10px;
+}
+
+.eventTitle{
+	width: 100%;
+}
+
+.eventTitle h1{
+	margin-bottom: 5px;
+	font-family: helvetica;
+
+}
+
+.event td{
+	padding-right: 20px;
+}
+
+.dateloc{
+	color: #666;
+	font-size: 1.2em;
+	padding-left: 30px;
+}
+
+.dateloc td{
+	padding-right: 20px;
+}
+
+.description{
+	padding-top: 40px;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #999;
+	padding-left: 35px;
+	font-size: 1.3em;
+}
+
+.listevent{
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+}
+
+table{
+	border-spacing: 0px;
+}
+
+.addEvent{
+	margin-left: 30px;
+}
+.addEvent input{
+	height: 30px;
+}
+
+.loginbox input{
+	height: 30px;
+}
+
+.register{
+	margin-left: 30px;
+}
+
+.register input{
+	height: 30px;
+}
+
+.navigationBar{
+	width:100%;
+	height: 50px;
+	background-color: #333;
+}
+
+.categories ul{
+	list-style-type: none;
+	padding:0;
+	-webkit-margin-before: 0px;
+	-webkit-margin-after: 0px;
+}
+.categories li{
+	display: block;
+	list-style: none;
+	float: left;
+	margin-left: auto;
+	margin-right: auto;
+	/*position: relative;*/
+}
+
+.categories a{
+	font-family: sans-serif;
+	font-size: 1.3em;
+	text-decoration:none;
+	color:white;
+	display: block;
+	position: relative;
+	padding: 15px 25px 15px 25px;
+}
+.categories a:hover {
+	color: #E8740E;
+}
+
+.editEvent{
+	float: right;
+	padding-left: 20px;
+}
+
+.editEvent img{
+	height: 20px;
+}
