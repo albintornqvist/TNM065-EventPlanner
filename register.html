@@ -9,7 +9,16 @@
     	<link rel="stylesheet" type="text/css" media="screen"
      	href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 		
-		<link href="css/style.css" rel="stylesheet"/>
+		<?php 
+			if(isset($_GET['mobile']))
+			{
+				?><link href="mobile/css/styleM.css" rel="stylesheet"/><?php
+			}
+			else
+			{
+				?><link href="css/style.css" rel="stylesheet"/><?php
+			}
+		?>
 	</head>
 
 	<body>

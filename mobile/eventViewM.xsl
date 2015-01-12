@@ -21,7 +21,7 @@
 				
 				<div class="container">
 					<div class="banner">
-          			<a href="listEventsView.php" class="name">EventPlanner</a>
+          			<a href="listEventsView.php?mobile" class="name">EventPlanner</a>
       			</div>
 
 
@@ -29,7 +29,7 @@
         
 			        <ul class="categories">
 			          <li><a href="listEventsView.php?mobile">Home</a></li>
-			          <li><a href="addEvent.php">Create Event</a></li>
+			          <li><a href="addEvent.php?mobile">Create Event</a></li>
 			          <li class="active"><a href="mainLogin.php">Log in</a></li>
 		          	  <li><a href="logout.php">Log out</a></li>
 			        </ul>
@@ -47,7 +47,7 @@
 										</h1>
 									</td>
 									<td>
-										<a href="{link}" class="editEvent"><img src="img/edit.png" height="25"/></a>
+										<a href="{link}&amp;mobile" class="editEvent"><img src="img/edit.png" height="25"/></a>
 									</td>
 								</tr>
 							</table>

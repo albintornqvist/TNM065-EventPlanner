@@ -7,7 +7,12 @@
 		// header ("Location: mainLogin.php");
 		$loginMessage = '';
 		$logStatus = 'Log in';
-		$logLink = 'mainLogin.php';
+		
+		if(isset($_GET['mobile']))
+			$logLink = 'mainLogin.php?mobile';
+		else
+			$logLink = 'mainLogin.php';
+
 		$loggedIn = false;
 
 	}
@@ -34,7 +39,16 @@
     	<link rel="stylesheet" type="text/css" media="screen"
      	href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 		
-		<link href="css/style.css" rel="stylesheet"/>
+		<?php 
+			if(isset($_GET['mobile']))
+			{
+				?><link href="mobile/css/styleM.css" rel="stylesheet"/><?php
+			}
+			else
+			{
+				?><link href="css/style.css" rel="stylesheet"/><?php
+			}
+		?>
 	</head>
 
 	<body>
@@ -59,12 +73,33 @@
 			</div>
 
 			<div class="navigationBar">
-		        <ul class="categories">
-		          <li><a href="listEventsView.php">Home</a></li>
-		          <li><a href="addEvent.php">Create Event</a></li>
-		          <li><a href=""><?= $loginMessage ?></a></li>
-		          <li class="active"><a href="<?= $logLink ?>"><?= $logStatus ?></a></li>
-		        </ul>
+
+				<?php 
+					if(isset($_GET['mobile']))
+					{
+						?>
+							<ul class="categories">
+					         <li><a href="listEventsView.php?mobile">Home</a></li>
+					         <li><a href="addEvent.php?mobile">Create Event</a></li>
+					         <li><a href=""><?= $loginMessage ?></a></li>
+					         <li class="active"><a href="<?= $logLink ?>"><?= $logStatus ?></a></li>
+					      </ul>
+				      <?php
+					}
+					else
+					{
+						?>
+							<ul class="categories">
+					         <li><a href="listEventsView.php">Home</a></li>
+					         <li><a href="addEvent.php">Create Event</a></li>
+					         <li><a href=""><?= $loginMessage ?></a></li>
+					         <li class="active"><a href="<?= $logLink ?>"><?= $logStatus ?></a></li>
+					      </ul>
+				      <?php
+					}
+				?>
+
+		        
 
 		   </div>
 

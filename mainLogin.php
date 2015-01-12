@@ -7,7 +7,16 @@
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
     	<link rel="stylesheet" type="text/css" media="screen"
      	href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
-		<link href="css/style.css" rel="stylesheet"/>
+		<?php 
+			if(isset($_GET['mobile']))
+			{
+				?><link href="mobile/css/styleM.css" rel="stylesheet"/><?php
+			}
+			else
+			{
+				?><link href="css/style.css" rel="stylesheet"/><?php
+			}
+		?>
 	</head>
 
 	<body>
@@ -51,7 +60,17 @@
 											<!-- <td>&nbsp;</td> -->
 											<!-- <td>&nbsp;</td> -->
 											<td><input type="submit" name="Submit" value="Log in"></td>
-											<td><a href="register.html">Register here</a></td>
+											
+											<?php 
+												if(isset($_GET['mobile']))
+												{
+													?><td><a href="register.html?mobile">Register here</a></td><?php
+												}
+												else
+												{
+													?><td><a href="register.html">Register here</a></td><?php
+												}
+											?>
 										</tr>
 									</table>
 								</td>

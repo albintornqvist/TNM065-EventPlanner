@@ -39,7 +39,7 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 	mysql_select_db("emilrydkvist_se")
 	    or die("Could not select database");
 
-	$query = "SELECT * FROM event";
+	$query = "SELECT * FROM event ORDER BY date DESC";
 
 	$result = mysql_query($query)
 		or die("Query failed");

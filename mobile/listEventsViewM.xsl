@@ -18,16 +18,16 @@
 			<body>
 				<div class="container">
 					<div class="banner">
-						<a href="listEventsView.php" class="name">EventPlanner</a>
+						<a href="listEventsView.php?mobile" class="name">EventPlanner</a>
       			</div>
 
    				<div class="navigationBar">
      
 		        		<ul class="categories">
 		            	<li><a href="listEventsView.php?mobile">Home</a></li>
-		            	<li><a href="addEvent.php">Create Event</a></li>
+		            	<li><a href="addEvent.php?mobile">Create Event</a></li>
 		            	<li><a href=""><xsl:value-of select="user"/></a></li>
-		            	<li class="active"><a href="{logLink}"><xsl:value-of select="logStatus"/></a></li>
+		            	<li><a href="{logLink}"><xsl:value-of select="logStatus"/></a></li>
 	          			<!-- <li><a href="logout.php">Log out</a></li> -->
 		            </ul>
 
@@ -48,7 +48,7 @@
 				<tr>
 					<td>
 						<h3>
-							<a href="{link}?mobile" class="eventTitleLink">
+							<a href="{link}&amp;mobile" class="eventTitleLink">
 								<xsl:value-of select="title"/>
 							</a>
 						</h3>

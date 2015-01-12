@@ -95,7 +95,14 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 	
 
 	header("Content-type:text/html");
-	$xsl->load('editEvent.xsl');
+	
+	if(isset($_GET['mobile']))     
+	{     
+		$xsl->load('mobile/editEventM.xsl'); 
+	}     
+	else {            
+	  	$xsl->load('editEvent.xsl'); 
+	}  
 	
 	// Make the transformation and print the result
 	$proc = new XSLTProcessor;
