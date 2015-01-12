@@ -14,8 +14,9 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 		$loginMessage = '';
 		$logStatus = 'Log in';
 		$logLink = 'mainLogin.php';
-		$loggedIn = false;
+		$loggedIn = -1;
 		$user = -1;
+		$currentUser = '';
 
 	}
 	else{
@@ -24,8 +25,9 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 		$loginMessage = 'Logged in as ' . $_SESSION['user'];
 		$logStatus = 'Log out';
 		$logLink = 'logout.php';
-		$loggedIn = true;
+		$loggedIn = 1;
 		$user = 0;
+		$currentUser = $_SESSION['user'];
 	}
 ?>
 
@@ -103,6 +105,8 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 	<link><?php print utf8_encode("editEvent.php?id=$eventID"); ?></link>
 
 	<attendLink><?php print utf8_encode("handleAttend.php?id=$eventID&amp;action=$user"); ?></attendLink>
+	
+	<currentUser><?php print utf8_encode($currentUser); ?></currentUser>
 
 	<?php 
 		while($line2 = mysql_fetch_object($commentR))

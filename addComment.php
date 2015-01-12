@@ -1,9 +1,19 @@
 <?php
 	
-	if($_POST['name'] && $_POST['comment'])
+	if($_POST['comment'])
 	{
 		session_start();
-		$username = htmlspecialchars($_POST['name']);
+
+		if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
+			header("Location: listEventsView.php");
+			exit;
+			
+		}
+		else
+		{
+			$username = $_SESSION['user'];
+		}
+		
 		$userComment = htmlspecialchars($_POST['comment']);
 		$eventID = $_SESSION["eventID"];
 
