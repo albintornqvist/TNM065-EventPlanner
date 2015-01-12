@@ -32,7 +32,7 @@ session_start();
 	$result = mysql_query($query) or die("Query failed");
 	$object = mysql_fetch_object($result);
 
-	$commentQ = "SELECT * FROM comment WHERE eventid = $eventID";
+	$commentQ = "SELECT * FROM comment WHERE eventid = $eventID ORDER BY date DESC";
 	$commentR = mysql_query($commentQ);
 
 	$attendQ = "SELECT * FROM attends WHERE eventid = $eventID";

@@ -97,6 +97,26 @@
 
 					<div class="comments">
 						
+						<form name="commentForm" action="addComment.php" method="post">
+							<table>
+								<tr>
+									<td>
+										<p class="commentName">Name: <input type="text" name="name" /></p>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>Comment: <textarea type="text" maxlength="150" rows="4" cols="40" name="comment" /></p>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p><input type="submit" value="Send comment" name="submit"/></p>
+									</td>
+								</tr>
+
+							</table>
+						</form>
 
 						<xsl:for-each select="comment">
 							<div class="comment">
@@ -120,28 +140,6 @@
 							</div>	
 						</xsl:for-each>
 
-						<form name="commentForm" action="addComment.php" method="post">
-							<table>
-								<tr>
-									<td>
-										<p class="commentName">Name: <input type="text" name="name" /></p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p>Comment: <textarea type="text" maxlength="150" rows="4" cols="40" name="comment" /></p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p><input type="submit" value="Send comment" name="submit"/></p>
-									</td>
-								</tr>
-
-							</table>
-						</form>
-
-						
 					</div>
 
 				</div>
