@@ -79,13 +79,13 @@
 
 							<xsl:if test="user=0">
 								<form name ="attendForm" action="{attendLink}" method="post">
-									<input type="submit" value="Attend"/>
+									<p>You are not attending to this event.</p><input type="submit" value="Attend"/>
 								</form>
 							</xsl:if>
 
 							<xsl:if test="user=2">
 								<form name ="attendForm" action="{attendLink}" method="post">
-									<input type="submit" value="Cancel"/>
+									<p>You are attending to this event.</p><input type="submit" value="Cancel"/>
 								</form>
 							</xsl:if>
 

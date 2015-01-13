@@ -49,16 +49,26 @@
 					<xsl:value-of select="title"/>
 				</a>
 			</h3>
-			
-			<p>
-				<xsl:value-of select="datetime"/>
-			</p>
+			<table class="dateloc">
+				<tr>
+					<td>
+						<p>
+							<b>When: </b><xsl:value-of select="datetime"/>
+						</p>
+					</td>
+					<td>
+						<p>
+							<b>Where: </b><xsl:value-of select="location"/>
+						</p>
+					</td>
+				</tr>
+			</table>
 
 			<p>
-				<xsl:value-of select="location"/>
-			</p>
+				<xsl:value-of select="shortDescription"/>
+			</p>	
 
-			<table>
+			<table class="dateloc2">
 				<tr>
 					<td>
 						<p>
@@ -75,10 +85,6 @@
 					</td>
 				</tr>
 			</table>
-
-			<p>
-				<xsl:value-of select="shortDescription"/>
-			</p>			
 		</div>
 
 	</xsl:template>
