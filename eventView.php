@@ -112,7 +112,7 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 		while($line2 = mysql_fetch_object($commentR))
 		{
 			$commentDate = new datetime($line2->date);
-			$commentDate = date_format($commentDate, 'Y-m-d H:m');
+			$commentDate = date_format($commentDate, 'Y-m-d G:i');
 			$resString2 = "<comment id='$line2->commentid'> <name> $line2->username </name> <datetime> $commentDate </datetime> <text> $line2->text </text> </comment>";
 			print utf8_encode($resString2);
 		}

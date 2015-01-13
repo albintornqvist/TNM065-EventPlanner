@@ -24,7 +24,7 @@
 	            or die("Could not select database");
 
 	    date_default_timezone_set("Europe/Stockholm");
-	    $dateNow = date("Y-m-d H:i:s");
+	    $dateNow = date("Y-m-d G:i:s");
 
 		$sqlComment = "INSERT INTO comment (text, username, eventid, date) VALUES ('$userComment', '$username', '$eventID', '$dateNow')";
 		
