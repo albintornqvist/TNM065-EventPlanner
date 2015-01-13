@@ -96,7 +96,7 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 
 	<description><?php print utf8_encode($object->description); ?></description>
 
-	<datetime><?php print utf8_encode(date_format($date, 'Y-m-d H:m')); ?></datetime>
+	<datetime><?php print utf8_encode(date_format($date, 'Y-m-d G:i')); ?></datetime>
 	<location><?php print utf8_encode($object->location); ?></location>
 	<creator><?php print utf8_encode($object->creator); ?></creator>
 

@@ -56,7 +56,7 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != "")) {
 
 		$desc = $line->description;
 
-		$date = date_format(new datetime($line->date), 'Y-m-d H:m');
+		$date = date_format(new datetime($line->date), 'Y-m-d G:i');
 
 		$location = $line->location;
 
