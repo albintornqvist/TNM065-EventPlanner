@@ -24,9 +24,18 @@
 
 		if(mysql_query($query))
 		{
-			$locString = "Location: eventView.php?id=1";
-			header($locString);
-			exit;
+			if(isset($_GET['mobile']))
+			{
+				$locString = "Location: eventView.php?id=$eventID&mobile";
+				header($locString);
+				exit;
+			}
+			else
+			{
+				$locString = "Location: eventView.php?id=$eventID";
+				header($locString);
+				exit;
+			}
 		}
 		else
 		{

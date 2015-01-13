@@ -47,12 +47,30 @@
 
 			<div class="navigationBar">
         
-		        <ul class="categories">
-		          <li><a href="listEventsView.php">Home</a></li>
-		          <li><a href="addEvent.php">Create Event</a></li>
-		         <!--  <li class="active"><a href="mainLogin.php">Log in</a></li>
-		          <li><a href="logout.php">Log out</a></li> -->
-		        </ul>
+		        <?php 
+					if(isset($_GET['mobile']))
+					{
+						?>
+						<ul class="categories">
+				         <li><a href="listEventsView.php?mobile">Home</a></li>
+				         <li><a href="addEvent.php?mobile">Create Event</a></li>
+				          <!-- <li class="active"><a href="mainLogin.php">Log in</a></li>
+				          <li><a href="logout.php">Log out</a></li> -->
+				      </ul>
+						<?php
+					}
+					else
+					{
+						?>
+						<ul class="categories">
+				         <li><a href="listEventsView.php">Home</a></li>
+				         <li><a href="addEvent.php">Create Event</a></li>
+				          <!-- <li class="active"><a href="mainLogin.php">Log in</a></li>
+				          <li><a href="logout.php">Log out</a></li> -->
+				      </ul>
+				      <?php
+					}
+				?>
 
 		    </div>
 

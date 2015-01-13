@@ -26,13 +26,33 @@
 			</div>
 
 			<div class="navigationBar">
-        
-		        <ul class="categories">
-		          <li><a href="listEventsView.php">Home</a></li>
-		          <li><a href="addEvent.php">Create Event</a></li>
-		          <!-- <li class="active"><a href="mainLogin.php">Log in</a></li>
-		          <li><a href="logout.php">Log out</a></li> -->
-		        </ul>
+        		
+				<?php 
+					if(isset($_GET['mobile']))
+					{
+						?>
+						<ul class="categories">
+				         <li><a href="listEventsView.php?mobile">Home</a></li>
+				         <li><a href="addEvent.php?mobile">Create Event</a></li>
+				          <!-- <li class="active"><a href="mainLogin.php">Log in</a></li>
+				          <li><a href="logout.php">Log out</a></li> -->
+				      </ul>
+						<?php
+					}
+					else
+					{
+						?>
+						<ul class="categories">
+				         <li><a href="listEventsView.php">Home</a></li>
+				         <li><a href="addEvent.php">Create Event</a></li>
+				          <!-- <li class="active"><a href="mainLogin.php">Log in</a></li>
+				          <li><a href="logout.php">Log out</a></li> -->
+				      </ul>
+				      <?php
+					}
+				?>
+
+		        
 
 		    </div>
 
@@ -64,11 +84,11 @@
 											<?php 
 												if(isset($_GET['mobile']))
 												{
-													?><td><a href="register.html?mobile">Register here</a></td><?php
+													?><td><a href="register.php?mobile">Register here</a></td><?php
 												}
 												else
 												{
-													?><td><a href="register.html">Register here</a></td><?php
+													?><td><a href="register.php">Register here</a></td><?php
 												}
 											?>
 										</tr>

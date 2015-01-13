@@ -12,7 +12,7 @@
 				<meta charset="utf-8"/>
 			  <title>EventPlanner</title>
 			  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet"/>
-			  <link href="css/style.css" rel="stylesheet"/>
+			  <link href="mobile/css/styleM.css" rel="stylesheet"/>
 			</head>
 
 			<body>
@@ -72,7 +72,7 @@
 			<div class="addEvent">
 				<h2>Edit event</h2>
 
-				<form name="eventForm" action="{link}" method="get" onsubmit="return validateForm()">
+				<form name="eventForm" action="{link}&amp;mobile" method="post" onsubmit="return validateForm()">
 					<table>
 						<tr>
 							<td>Name:</td>

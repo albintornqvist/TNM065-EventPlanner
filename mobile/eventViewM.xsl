@@ -30,8 +30,8 @@
 			        <ul class="categories">
 			          <li><a href="listEventsView.php?mobile">Home</a></li>
 			          <li><a href="addEvent.php?mobile">Create Event</a></li>
-			          <li class="active"><a href="mainLogin.php">Log in</a></li>
-		          	  <li><a href="logout.php">Log out</a></li>
+			          <li><a href=""><xsl:value-of select="user"/></a></li>
+			          <li class="active"><a href="{logLink}?mobile"><xsl:value-of select="logStatus"/></a></li>
 			        </ul>
 
 			      </div>
@@ -96,30 +96,39 @@
 					</div>
 
 					<div class="comments">
-						
-						<form name="commentForm" action="addComment.php" method="post">
-							<table>
-								<tr>
-									<td>
-										<p class="commentName">Name: <input type="text" name="name" /></p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p>Comment: <textarea type="text" maxlength="150" rows="4" cols="40" name="comment" /></p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p><input type="submit" value="Send comment" name="submit"/></p>
-									</td>
-								</tr>
+						<xsl:choose>
+							<xsl:when test="user=-1">
+								<p>Log in to comment.</p>
+							</xsl:when>
+							<xsl:otherwise>
+								<form name="commentForm" action="addComment.php" method="post">
+									<table>
+										<tr>
+											<td>
+												<p class="commentName">
+													<b><xsl:value-of select="currentUser"/></b>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<p>Comment: <textarea type="text" maxlength="150" rows="4" cols="40" name="comment" /></p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<p><input type="submit" value="Send comment" name="submit"/></p>
+											</td>
+										</tr>
 
-							</table>
-						</form>
-
+									</table>
+								</form>
+							</xsl:otherwise>
+						</xsl:choose>
+					
 						<xsl:for-each select="comment">
 							<div class="comment">
+
 								<table>
 									<tr>
 										<td>
@@ -137,8 +146,10 @@
 								<p class="text">
 									<xsl:value-of select="text"/>
 								</p>
-							</div>	
+							</div>
 						</xsl:for-each>
+
+						
 
 					</div>
 
