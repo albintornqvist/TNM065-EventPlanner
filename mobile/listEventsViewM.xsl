@@ -68,7 +68,8 @@
 						</p>
 					</td>
 				</tr>
-				
+			</table>
+			<table class="dateloc">
 				<tr>	
 					<td>				
 						<p>
@@ -76,8 +77,6 @@
 							<xsl:value-of select="nrOfAttendees"/>
 						</p>
 					</td>
-				</tr>
-				<tr>
 					<td>
 						<p>
 							<b>Comments: </b>
